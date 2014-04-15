@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.chef_server_url = "https://192.168.100.154:443/"
     chef.validation_key_path = "chef-validator.pem"
     chef.node_name = "chef-vagrant0"
-    #chef.run_list = ["recipe[nginx]", "role[frontend]"]
+    chef.run_list = ["recipe[nginx]", "role[frontend]"]
     chef.delete_node = true
     chef.delete_client = true
   end

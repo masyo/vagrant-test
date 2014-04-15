@@ -73,3 +73,393 @@ root@localhost's password:
 	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/batch_action.rb:72:in `block (2 levels) in run'
 [mulder@mulder vagrant-test]$ 
 
+[mulder@mulder vagrant-test]$ vagrant box add centos_64 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Adding box 'centos_64' (v0) for provider: 
+    box: Downloading: http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Successfully added box 'centos_64' (v0) for 'virtualbox'!
+[mulder@mulder vagrant-test]$ 
+[mulder@mulder vagrant-test]$ cp /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb host.rb
+[mulder@mulder vagrant-test]$ sudo gedit /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb
+[mulder@mulder vagrant-test]$ cp /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb host.rb.patched
+
+[mulder@mulder vagrant-test]$ vagrant box add centos_64 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Adding box 'centos_64' (v0) for provider: 
+    box: Downloading: http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Successfully added box 'centos_64' (v0) for 'virtualbox'!
+[mulder@mulder vagrant-test]$ 
+[mulder@mulder vagrant-test]$ vagrant status
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+root@localhost's password: 
+Current machine states:
+
+test_vm                   running (libvirt)
+
+The Libvirt domain is running. To stop this machine, you can run
+`vagrant halt`. To destroy the machine, you can run `vagrant destroy`.
+[mulder@mulder vagrant-test]$ 
+
+[root@mulder vagrant-test]# vagrant ssh
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+root@localhost's password: 
+/root/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/models/compute/server.rb:250:in `rescue in addresses': Error authenticating over ssh to host localhost and user root (Fog::Errors::Error)
+	from /root/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/models/compute/server.rb:245:in `addresses'
+	from /root/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_ssh_info.rb:36:in `block in read_ssh_info'
+	from /root/.vagrant.d/gems/gems/fog-core-1.21.1/lib/fog/core/model.rb:67:in `instance_eval'
+	from /root/.vagrant.d/gems/gems/fog-core-1.21.1/lib/fog/core/model.rb:67:in `block in wait_for'
+	from /root/.vagrant.d/gems/gems/fog-core-1.21.1/lib/fog/core/wait_for.rb:5:in `wait_for'
+	from /root/.vagrant.d/gems/gems/fog-core-1.21.1/lib/fog/core/model.rb:64:in `wait_for'
+	from /root/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_ssh_info.rb:35:in `read_ssh_info'
+	from /root/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_ssh_info.rb:15:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /root/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:19:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/provider.rb:48:in `ssh_info'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:274:in `ssh_info'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/ssh_exec.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:95:in `block in finalize_action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:51:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /root/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:19:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:95:in `block in finalize_action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:51:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/ssh/command.rb:59:in `block in execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:200:in `block in with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `each'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/ssh/command.rb:41:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/cli.rb:42:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/environment.rb:248:in `cli'
+	from /opt/vagrant/bin/../embedded/gems/gems/vagrant-1.5.3/bin/vagrant:158:in `<main>'
+[root@mulder vagrant-test]#
+
+
+from this point everything should go smoothly.
+
+[mulder@mulder vagrant-test]$ vagrant halt
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+==> test_vm: Halting domain...
+[mulder@mulder vagrant-test]$ 
+
+[mulder@mulder vagrant-test]$ vagrant destroy
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+/home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/prune_nfs_exports.rb:18:in `call': undefined method `nfs_prune' for #<Vagrant::Host:0x00000001dc0f40> (NoMethodError)
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/forward_ports.rb:137:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:19:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:95:in `block in finalize_action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:51:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/destroy/command.rb:30:in `block in execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:200:in `block in with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `each'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/destroy/command.rb:29:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/cli.rb:42:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/environment.rb:248:in `cli'
+	from /opt/vagrant/bin/../embedded/gems/gems/vagrant-1.5.3/bin/vagrant:158:in `<main>'
+[mulder@mulder vagrant-test]$ 
+
+ha-ha, same issue as with the initialization, i don't want to fix that.
+deleting vm and re-initializing
+
+
+mulder@mulder vagrant-test]$ vagrant up --provider=libvirt
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+Bringing machine 'test_vm' up with 'libvirt' provider...
+/home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/requests/compute/list_domains.rb:9:in `lookup_domain_by_uuid': Call to virDomainLookupByUUID failed: Domain not found: no domain with matching uuid '2254c06d-8137-4daf-ab37-f670d763d2a0' (Libvirt::RetrieveError)
+	from /home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/requests/compute/list_domains.rb:9:in `list_domains'
+	from /home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/models/compute/servers.rb:17:in `get'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_state.rb:23:in `read_state'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_state.rb:15:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:19:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/provider.rb:58:in `state'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:341:in `state'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/is_created.rb:12:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:43:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:84:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/batch_action.rb:72:in `block (2 levels) in run'
+[mulder@mulder vagrant-test]$ vagrant status
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+/home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/requests/compute/list_domains.rb:9:in `lookup_domain_by_uuid': Call to virDomainLookupByUUID failed: Domain not found: no domain with matching uuid '2254c06d-8137-4daf-ab37-f670d763d2a0' (Libvirt::RetrieveError)
+	from /home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/requests/compute/list_domains.rb:9:in `list_domains'
+	from /home/mulder/.vagrant.d/gems/gems/fog-1.21.0/lib/fog/libvirt/models/compute/servers.rb:17:in `get'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_state.rb:23:in `read_state'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/read_state.rb:15:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:84:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/provider.rb:58:in `state'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:341:in `state'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/status/command.rb:27:in `block in execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:200:in `block in with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `each'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/plugin/v2/command.rb:194:in `with_target_vms'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/commands/status/command.rb:26:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/cli.rb:42:in `execute'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/environment.rb:248:in `cli'
+	from /opt/vagrant/bin/../embedded/gems/gems/vagrant-1.5.3/bin/vagrant:158:in `<main>'
+[mulder@mulder vagrant-test]$ 
+
+wonderful
+
+[mulder@mulder vagrant-test]$ rm -rf .vagrant/
+[mulder@mulder vagrant-test]$ vagrant status
+Current machine states:
+
+test_vm                   not created (virtualbox)
+
+The environment has not yet been created. Run `vagrant up` to
+create the environment. If a machine is not created, only the
+default provider will be shown. So if a provider is not listed,
+then the machine is not created for that environment.
+[mulder@mulder vagrant-test]$ 
+
+
+[mulder@mulder vagrant-test]$ vagrant up --provider=libvirt
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+Bringing machine 'test_vm' up with 'libvirt' provider...
+==> test_vm: HandleBoxUrl middleware is deprecated. Use HandleBox instead.
+==> test_vm: This is a bug with the provider. Please contact the creator
+==> test_vm: of the provider you use to fix this.
+==> test_vm: Creating image (snapshot of base box volume).
+==> test_vm: Creating domain with the following settings...
+==> test_vm:  -- Name:          vagrant-test_test_vm
+==> test_vm:  -- Domain type:   kvm
+==> test_vm:  -- Cpus:          1
+==> test_vm:  -- Memory:        512M
+==> test_vm:  -- Base box:      centos64
+==> test_vm:  -- Storage pool:  default
+==> test_vm:  -- Image:         /var/lib/libvirt/images/vagrant-test_test_vm.img
+==> test_vm:  -- Volume Cache:  default
+==> test_vm:  -- Kernel:        
+==> test_vm:  -- Initrd:        
+==> test_vm:  -- Command line : 
+==> test_vm: Starting domain.
+==> test_vm: Waiting for domain to get an IP address...
+==> test_vm: Waiting for SSH to become available...
+Ncat: Connection refused.
+Ncat: Connection refused.
+Ncat: Connection refused.
+Ncat: Connection refused.
+==> test_vm: Creating shared folders metadata...
+==> test_vm: Rsyncing folder: /home/mulder/gitrepos/vagrant-test/ => /vagrant
+==> test_vm: Rsyncing folder: /home/mulder/gitrepos/vagrant-test/ => /vagrant
+The following SSH command responded with a non-zero exit status.
+Vagrant assumes that this means the command failed!
+
+find '/vagrant' ! -user root -print0 | xargs -0 -r chown -v root:
+
+Stdout from the command:
+
+changed ownership of `/vagrant' to root:root
+changed ownership of `/vagrant/README' to root:root
+changed ownership of `/vagrant/.git' to root:root
+changed ownership of `/vagrant/.git/objects' to root:root
+changed ownership of `/vagrant/.git/objects/d8' to root:root
+changed ownership of `/vagrant/.git/objects/d8/d2dde3eed301dc617948e1e87a922f799dc2aa' to root:root
+changed ownership of `/vagrant/.git/objects/fa' to root:root
+changed ownership of `/vagrant/.git/objects/fa/c0aa2869143f72d2bb1a9ec6ccdf47df4dfb77' to root:root
+changed ownership of `/vagrant/.git/objects/fa/4ad42b9e8c41c4f98d19f5a29aae323de233f4' to root:root
+changed ownership of `/vagrant/.git/objects/0e' to root:root
+changed ownership of `/vagrant/.git/objects/0e/e129107aa03e5cae3c95f6fa2245f47418c1be' to root:root
+changed ownership of `/vagrant/.git/objects/3a' to root:root
+changed ownership of `/vagrant/.git/objects/3a/81de6e2128c004b41e57f8939413e839a478a0' to root:root
+changed ownership of `/vagrant/.git/objects/18' to root:root
+changed ownership of `/vagrant/.git/objects/18/57af25737c1ef4798e7a76e0e883dfd8e7ffba' to root:root
+changed ownership of `/vagrant/.git/objects/b7' to root:root
+changed ownership of `/vagrant/.git/objects/b7/91fb55209cbc52e79874e6e623faeb51dd910c' to root:root
+changed ownership of `/vagrant/.git/objects/11' to root:root
+changed ownership of `/vagrant/.git/objects/11/127546758c9f1672158910bc2837a88d46ec47' to root:root
+changed ownership of `/vagrant/.git/objects/info' to root:root
+changed ownership of `/vagrant/.git/objects/pack' to root:root
+changed ownership of `/vagrant/.git/objects/6f' to root:root
+changed ownership of `/vagrant/.git/objects/6f/04c1d451fe06d2de9969b685182ae04787fbe0' to root:root
+changed ownership of `/vagrant/.git/COMMIT_EDITMSG' to root:root
+changed ownership of `/vagrant/.git/HEAD' to root:root
+changed ownership of `/vagrant/.git/index' to root:root
+changed ownership of `/vagrant/.git/info' to root:root
+changed ownership of `/vagrant/.git/info/exclude' to root:root
+changed ownership of `/vagrant/.git/branches' to root:root
+changed ownership of `/vagrant/.git/config' to root:root
+changed ownership of `/vagrant/.git/refs' to root:root
+changed ownership of `/vagrant/.git/refs/remotes' to root:root
+changed ownership of `/vagrant/.git/refs/remotes/origin' to root:root
+changed ownership of `/vagrant/.git/refs/remotes/origin/master' to root:root
+changed ownership of `/vagrant/.git/refs/tags' to root:root
+changed ownership of `/vagrant/.git/refs/heads' to root:root
+changed ownership of `/vagrant/.git/refs/heads/master' to root:root
+changed ownership of `/vagrant/.git/logs' to root:root
+changed ownership of `/vagrant/.git/logs/HEAD' to root:root
+changed ownership of `/vagrant/.git/logs/refs' to root:root
+changed ownership of `/vagrant/.git/logs/refs/remotes' to root:root
+changed ownership of `/vagrant/.git/logs/refs/remotes/origin' to root:root
+changed ownership of `/vagrant/.git/logs/refs/remotes/origin/master' to root:root
+changed ownership of `/vagrant/.git/logs/refs/heads' to root:root
+changed ownership of `/vagrant/.git/logs/refs/heads/master' to root:root
+changed ownership of `/vagrant/.git/hooks' to root:root
+changed ownership of `/vagrant/.git/hooks/commit-msg.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/pre-applypatch.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/pre-rebase.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/pre-commit.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/prepare-commit-msg.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/pre-push.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/post-update.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/update.sample' to root:root
+changed ownership of `/vagrant/.git/hooks/applypatch-msg.sample' to root:root
+changed ownership of `/vagrant/.git/description' to root:root
+changed ownership of `/vagrant/progress.txt' to root:root
+failed to change ownership of `/vagrant/.chef' to root:root
+changed ownership of `/vagrant/Vagrantfile~' to root:root
+changed ownership of `/vagrant/host.rb.patched' to root:root
+changed ownership of `/vagrant/Vagrantfile' to root:root
+changed ownership of `/vagrant/progress.txt~' to root:root
+changed ownership of `/vagrant/host.rb' to root:root
+
+
+Stderr from the command:
+
+chown: cannot dereference `/vagrant/.chef': No such file or directory
+
+[mulder@mulder vagrant-test]$ 
+
+
+[mulder@mulder vagrant-test]$ rm -rf .vagrant
+[mulder@mulder vagrant-test]$ vagrant up --provider=libvirt
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+Bringing machine 'test_vm' up with 'libvirt' provider...
+==> test_vm: HandleBoxUrl middleware is deprecated. Use HandleBox instead.
+==> test_vm: This is a bug with the provider. Please contact the creator
+==> test_vm: of the provider you use to fix this.
+==> test_vm: Creating image (snapshot of base box volume).
+==> test_vm: Creating domain with the following settings...
+==> test_vm:  -- Name:          vagrant-test_test_vm
+==> test_vm:  -- Domain type:   kvm
+==> test_vm:  -- Cpus:          1
+==> test_vm:  -- Memory:        512M
+==> test_vm:  -- Base box:      centos64
+==> test_vm:  -- Storage pool:  default
+==> test_vm:  -- Image:         /var/lib/libvirt/images/vagrant-test_test_vm.img
+==> test_vm:  -- Volume Cache:  default
+==> test_vm:  -- Kernel:        
+==> test_vm:  -- Initrd:        
+==> test_vm:  -- Command line : 
+==> test_vm: Starting domain.
+==> test_vm: Waiting for domain to get an IP address...
+==> test_vm: Waiting for SSH to become available...
+==> test_vm: Creating shared folders metadata...
+==> test_vm: Rsyncing folder: /home/mulder/gitrepos/vagrant-test/ => /vagrant
+==> test_vm: Rsyncing folder: /home/mulder/gitrepos/vagrant-test/ => /vagrant
+==> test_vm: Configuring and enabling network interfaces...
+==> test_vm: Running provisioner: chef_client...
+Creating folder to hold client key...
+Uploading chef client validation key...
+Generating chef JSON and uploading...
+==> test_vm: Warning: Chef run list is empty. This may not be what you want.
+Running chef-client...
+[2014-04-15T19:02:55+00:00] INFO: *** Chef 11.4.0 ***
+[2014-04-15T19:02:56+00:00] INFO: [inet6] no default interface, picking the first ipaddress
+[2014-04-15T19:02:56+00:00] INFO: ipaddress and ip6address are set from different interfaces (eth1 & eth0), macaddress has been set using the ipaddress interface
+[2014-04-15T19:02:56+00:00] INFO: Client key /etc/chef/client.pem is not present - registering
+[2014-04-15T19:02:57+00:00] INFO: Run List is []
+[2014-04-15T19:02:57+00:00] INFO: Run List expands to []
+[2014-04-15T19:02:57+00:00] INFO: Starting Chef Run for chef-vagrant0
+[2014-04-15T19:02:57+00:00] INFO: Running start handlers
+[2014-04-15T19:02:57+00:00] INFO: Start handlers complete.
+[2014-04-15T19:02:57+00:00] INFO: Loading cookbooks []
+[2014-04-15T19:02:57+00:00] WARN: Node chef-vagrant0 has an empty run list.
+[2014-04-15T19:02:58+00:00] INFO: Chef Run complete in 0.205356 seconds
+[2014-04-15T19:02:58+00:00] INFO: Running report handlers
+[2014-04-15T19:02:58+00:00] INFO: Report handlers complete
+[mulder@mulder vagrant-test]$ 
+
+

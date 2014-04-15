@@ -1,0 +1,103 @@
+$syum install libxslt-devel libxml2-devel libvirt-devel
+[mulder@mulder vagrant-test]$ vagrant plugin install vagrant-libvirt
+Installing the 'vagrant-libvirt' plugin. This can take a few minutes...
+Installed the plugin 'vagrant-libvirt (0.0.15)'!
+[mulder@mulder vagrant-test]$ 
+[mulder@mulder vagrant-test]$ vagrant box add centos64 http://kwok.cz/centos64.box
+==> box: Adding box 'centos64' (v0) for provider: 
+    box: Downloading: http://kwok.cz/centos64.box
+==> box: Successfully added box 'centos64' (v0) for 'libvirt'!
+[mulder@mulder vagrant-test]$ 
+$ scp root@192.168.100.159:/etc/chef/chef* .chef/
+[mulder@mulder vagrant-test]$ vagrant up --provider=libvirt
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+Bringing machine 'test_vm' up with 'libvirt' provider...
+root@localhost's password: 
+==> test_vm: HandleBoxUrl middleware is deprecated. Use HandleBox instead.
+==> test_vm: This is a bug with the provider. Please contact the creator
+==> test_vm: of the provider you use to fix this.
+==> test_vm: Creating image (snapshot of base box volume).
+==> test_vm: Creating domain with the following settings...
+==> test_vm:  -- Name:          vagrant-test_test_vm
+==> test_vm:  -- Domain type:   kvm
+==> test_vm:  -- Cpus:          1
+==> test_vm:  -- Memory:        512M
+==> test_vm:  -- Base box:      centos64
+==> test_vm:  -- Storage pool:  default
+==> test_vm:  -- Image:         /var/lib/libvirt/images/vagrant-test_test_vm.img
+==> test_vm:  -- Volume Cache:  default
+==> test_vm:  -- Kernel:        
+==> test_vm:  -- Initrd:        
+==> test_vm:  -- Command line : 
+==> test_vm: Starting domain.
+==> test_vm: Waiting for domain to get an IP address...
+/home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/prune_nfs_exports.rb:18:in `call': undefined method `nfs_prune' for #<Vagrant::Host:0x000000022accc0> (NoMethodError)
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/forward_ports.rb:137:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/connect_libvirt.rb:19:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:95:in `block in finalize_action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:51:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:34:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/wait_till_up.rb:90:in `terminate'
+	from /home/mulder/.vagrant.d/gems/gems/vagrant-libvirt-0.0.15/lib/vagrant-libvirt/action/wait_till_up.rb:81:in `recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:67:in `block in recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:64:in `each'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:64:in `recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builtin/call.rb:62:in `recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:67:in `block in recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:64:in `each'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:64:in `recover'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:53:in `rescue in call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/warden.rb:28:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/builder.rb:116:in `call'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `block in run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/util/busy.rb:19:in `busy'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/action/runner.rb:69:in `run'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/machine.rb:157:in `action'
+	from /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/lib/vagrant/batch_action.rb:72:in `block (2 levels) in run'
+[mulder@mulder vagrant-test]$ 
+
+[mulder@mulder vagrant-test]$ vagrant box add centos_64 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Adding box 'centos_64' (v0) for provider: 
+    box: Downloading: http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Successfully added box 'centos_64' (v0) for 'virtualbox'!
+[mulder@mulder vagrant-test]$ 
+[mulder@mulder vagrant-test]$ cp /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb host.rb
+[mulder@mulder vagrant-test]$ sudo gedit /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb
+[mulder@mulder vagrant-test]$ cp /opt/vagrant/embedded/gems/gems/vagrant-1.5.3/plugins/hosts/redhat/host.rb host.rb.patched
+
+[mulder@mulder vagrant-test]$ vagrant box add centos_64 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Adding box 'centos_64' (v0) for provider: 
+    box: Downloading: http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box
+==> box: Successfully added box 'centos_64' (v0) for 'virtualbox'!
+[mulder@mulder vagrant-test]$ 
+[mulder@mulder vagrant-test]$ vagrant status
+Vagrant.require_plugin is deprecated and has no effect any longer.
+Use `vagrant plugin` commands to manage plugins. This warning will
+be removed in the next version of Vagrant.
+root@localhost's password: 
+Current machine states:
+
+test_vm                   running (libvirt)
+
+The Libvirt domain is running. To stop this machine, you can run
+`vagrant halt`. To destroy the machine, you can run `vagrant destroy`.
+[mulder@mulder vagrant-test]$ 
+
+
